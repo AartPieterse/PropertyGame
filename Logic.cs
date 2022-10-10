@@ -64,10 +64,11 @@ namespace PropertyGame
                 {
                     foreach (Property p in properties)
                     {
-                        if (lines[1].ToLower() == nameof(p).ToLower())
+                        if (lines[1].ToLower() == p.Name.ToLower())
                         {
                             // THIS DOES NOT WORK 
                             BuyProperty(p);
+                            break;
                         }
                     }
                 }
@@ -133,7 +134,7 @@ namespace PropertyGame
 
             foreach (Property prop in props)
             {
-                Console.WriteLine(prop.Name, prop.TotalEarnings);
+                Console.WriteLine(prop.Name + " ( +" + prop.TotalEarnings + ")");
             }
         }
 
