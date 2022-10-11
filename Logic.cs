@@ -1,4 +1,5 @@
 ﻿using PropertyGame.Objects;
+using System.Linq;
 
 namespace PropertyGame
 {
@@ -34,6 +35,7 @@ namespace PropertyGame
             if (input == "rules") Rules();
             if (input == "start") Start();
             if (input == "exit") Environment.Exit(0);
+            else Console.WriteLine("Commmand not recognised");  
 
             Start();
 
@@ -54,7 +56,7 @@ namespace PropertyGame
                 wallet.Value += revenue;
                 Console.WriteLine($"Balance: {wallet.Value} (+ {revenue})");
 
-                Console.WriteLine("What do you want to do? \n Buy properties or wait a round?");
+                Console.WriteLine("Waiting command...");
 
                 // Buying properties
                 line = Console.ReadLine();
@@ -62,24 +64,116 @@ namespace PropertyGame
 
                 if (lines[0] == "buy")
                 {
-                    foreach (Property p in properties)
+                    switch (lines[1].ToLower())
                     {
-                        if (lines[1].ToLower() == p.Name.ToLower())
-                        {
-                            // THIS DOES NOT WORK 
-                            BuyProperty(p);
+                        case "box":
+                            BuyProperty(new Box());
                             break;
-                        }
+                        case "b":
+                            BuyProperty(new Box());
+                            break;
+                        case "room":
+                            BuyProperty(new Room());
+                            break;
+                        case "r":
+                            BuyProperty(new Room());
+                            break;
+                        case "lemonadestand":
+                            BuyProperty(new Lemonadestand());
+                            break;
+                        case "l":
+                            BuyProperty(new Lemonadestand());
+                            break;
+                        case "apartment":
+                            BuyProperty(new Apartment());
+                            break;
+                        case "a":
+                            BuyProperty(new Apartment());
+                            break;
+                        case "house":
+                            BuyProperty(new House());
+                            break;
+                        case "h":
+                            BuyProperty(new House());
+                            break;
+                        case "villa":
+                            BuyProperty(new Villa());
+                            break;
+                        case "v":
+                            BuyProperty(new Villa());
+                            break;
+                        case "castle":
+                            BuyProperty(new Castle());
+                            break;
+                        case "c":
+                            BuyProperty(new Castle());
+                            break;
+                        case "monument":
+                            BuyProperty(new Monument());
+                            break;
+                        case "m":
+                            BuyProperty(new Monument());
+                            break;
+                        default:
+                            Console.WriteLine("Invalid command");
+                            break;
                     }
                 }
-                if (lines[0] == "sell")
+                else if (lines[0] == "sell")
                 {
-                    foreach (Property p in properties)
+                    switch (lines[1].ToLower())
                     {
-                        if (lines[1].ToLower() == nameof(p).ToLower())
-                        {
-                            SellProperty(p);
-                        }
+                        case "box":
+                            SellProperty(new Box());
+                            break;
+                        case "b":
+                            SellProperty(new Box());
+                            break;
+                        case "room":
+                            SellProperty(new Room());
+                            break;
+                        case "r":
+                            SellProperty(new Room());
+                            break;
+                        case "lemonadestand":
+                            SellProperty(new Lemonadestand());
+                            break;
+                        case "l":
+                            SellProperty(new Lemonadestand());
+                            break;
+                        case "apartment":
+                            SellProperty(new Apartment());
+                            break;
+                        case "a":
+                            SellProperty(new Apartment());
+                            break;
+                        case "house":
+                            SellProperty(new House());
+                            break;
+                        case "h":
+                            SellProperty(new House());
+                            break;
+                        case "villa":
+                            SellProperty(new Villa());
+                            break;
+                        case "v":
+                            SellProperty(new Villa());
+                            break;
+                        case "castle":
+                            SellProperty(new Castle());
+                            break;
+                        case "c":
+                            SellProperty(new Castle());
+                            break;
+                        case "monument":
+                            SellProperty(new Monument());
+                            break;
+                        case "m":
+                            SellProperty(new Monument());
+                            break;
+                        default:
+                            Console.WriteLine("Invalid command");
+                            break;
                     }
                 }
                 else if (lines[0] == "prices")
@@ -95,6 +189,8 @@ namespace PropertyGame
                     Environment.Exit(0);
                 }
 
+                Console.WriteLine();
+
                 counter++;
             }
 
@@ -104,7 +200,16 @@ namespace PropertyGame
 
         static void Rules()
         {
-            Console.WriteLine("Here comes the rules: ");
+            Console.WriteLine("Here come the rules: \n");
+
+            Console.WriteLine("The goal of the game is to aqquire the befamed Monument. To achieve this you have to buy" +
+                "the cheaper properties. They will earn income every round");
+
+            Console.WriteLine("There are 4 actions to do, buy, sell, show prices and show owned properties.");
+            Console.WriteLine("Those actions resemble the 4 keywords: 'buy', 'sell', 'prices' and 'properties'. " +
+                "Of these 'buy' and 'sell' must be followed by the name of a property which has to be bought or sold. \n\n" +
+                "Example: 'buy house' buys a house, and 'sell room' sells a room.");
+
         }
 
         int CalculateRevenue()
@@ -122,9 +227,11 @@ namespace PropertyGame
 
         void PrintPrices()
         {
+            Console.WriteLine("{0,-20} {1,5}\n", "Property", "Total earnings");
+
             foreach (Property prop in properties)
             {
-                Console.WriteLine($" {prop.Price} ({prop.TotalEarnings}) \n");
+                Console.WriteLine("{0, -20} {1, 9}", prop.Name, prop.Price);
             }
         }
 
@@ -132,9 +239,11 @@ namespace PropertyGame
         {
             IEnumerable<Property> props = wallet.Properties.OrderBy(property => property.Price);
 
+            Console.WriteLine("{0, -15} {1, 5}\n", "Property", "Total earnings");
+
             foreach (Property prop in props)
             {
-                Console.WriteLine(prop.Name + " ( +" + prop.TotalEarnings + ")");
+                Console.WriteLine("{0, -15} {1, 0}", prop.Name, prop.TotalEarnings);
             }
         }
 
@@ -155,13 +264,13 @@ namespace PropertyGame
 
         void SellProperty(Property property)
         {
-            if (wallet.Properties.Contains(property))
-            {
-                wallet.Properties.Remove(property);
+            // Check wallet on existing property --> Delete one of them            
 
+            if (wallet.Properties.Remove(wallet.Properties.First<Property>(p => p.Name == property.Name)))
+            {
                 wallet.Value += property.Sellvalue;
-            
-            } else
+            }
+            else
             {
                 Console.WriteLine("Can't sell, property is not owned");
             }
