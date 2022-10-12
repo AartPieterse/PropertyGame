@@ -2,10 +2,10 @@
 {
     internal class Game
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Logic game = new Logic();
-            
+
         }
     }
 }

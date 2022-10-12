@@ -1,11 +1,10 @@
 ﻿using PropertyGame.Objects;
-using System.ComponentModel;
 
 namespace PropertyGame
 {
     public class Logic
     {
-        readonly List<Property> AllProperties = new List<Property>();
+        private readonly List<Property> AllProperties = new List<Property>();
 
         public Logic()
         {
@@ -46,7 +45,7 @@ namespace PropertyGame
         }
 
         public IEnumerable<Property> GetPropertiesWithPrices()
-        { 
+        {
             return AllProperties;
         }
 

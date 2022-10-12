@@ -19,13 +19,7 @@
 
         public int TotalEarnings { get; set; }
 
-        public int Sellvalue
-        {
-            get
-            {
-                return Price / 2;
-            }
-        }
+        public int Sellvalue => Price / 2;
     }
 
 
