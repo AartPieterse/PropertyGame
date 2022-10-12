@@ -3,7 +3,7 @@ using PropertyGame.Objects;
 
 namespace UI.ConsoleApp
 {
-    class ConsoleApp
+    internal class ConsoleApp
     {
         private static void Main(string[] args)
         {
@@ -13,6 +13,6 @@ namespace UI.ConsoleApp
 
             Game game = new Game(logic, wallet);
             game.StartGame();
-        }        
+        }
     }
 }

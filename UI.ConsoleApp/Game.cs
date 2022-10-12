@@ -3,7 +3,7 @@ using PropertyGame.Objects;
 
 namespace UI.ConsoleApp
 {
-    class Game
+    internal class Game
     {
         private readonly Logic logic;
         private Wallet wallet;
@@ -26,10 +26,24 @@ namespace UI.ConsoleApp
             {
                 string input = Console.ReadLine() ?? "no command";
 
-                if (input.ToLower() == "rules") Rules();
-                if (input.ToLower() == "start") GameCore();
-                if (input.ToLower() == "exit") Environment.Exit(0);
-                else Console.WriteLine("Commmand not recognised");
+                if (input.ToLower() == "rules")
+                {
+                    Rules();
+                }
+
+                if (input.ToLower() == "start")
+                {
+                    GameCore();
+                }
+
+                if (input.ToLower() == "exit")
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Commmand not recognised");
+                }
             }
         }
 
@@ -207,7 +221,7 @@ namespace UI.ConsoleApp
             return earnings;
         }
 
-        void BuyProperty(Property property)
+        private void BuyProperty(Property property)
         {
             if (property.Price <= wallet.Value)
             {
@@ -221,7 +235,7 @@ namespace UI.ConsoleApp
             }
         }
 
-        void SellProperty(Property property)
+        private void SellProperty(Property property)
         {
             if (!wallet.Properties.Exists(p => p.Name == property.Name))
             {
