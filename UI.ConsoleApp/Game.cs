@@ -63,7 +63,8 @@ namespace UI.ConsoleApp
 
                 // New command
                 line = Console.ReadLine() ?? "no command";
-                string[] lines = line.Split(" ");
+                string[] lines = new string[2];
+                lines = line.Split(" ");
 
                 if (lines[0] == "buy")
                 {
@@ -251,11 +252,11 @@ namespace UI.ConsoleApp
 
         private void PrintPrices()
         {
-            Console.WriteLine("{0,-20} {1,5}\n", "Property", "Total earnings");
+            Console.WriteLine("{0,-20} {1,7}\n", "Property", "Prices");
 
             foreach (Property prop in logic.GetPropertiesWithPrices())
             {
-                Console.WriteLine("{0, -20} {1, 9}", prop.Name, prop.Price);
+                Console.WriteLine("{0, -18} {1, 9}", prop.Name, prop.Price);
             }
         }
 
