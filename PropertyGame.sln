@@ -5,6 +5,10 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyGame", "PropertyGame.csproj", "{0991A85D-D2BA-43E3-BE94-9F17FBFBE3E6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows App", "..\Windows App\Windows App.csproj", "{9E86BB8F-3166-431D-985E-41DD520C65FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Console", "..\ConsoleUI\UI.Console.csproj", "{4F11F196-F76A-44BA-9F75-F727968F6872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0991A85D-D2BA-43E3-BE94-9F17FBFBE3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0991A85D-D2BA-43E3-BE94-9F17FBFBE3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0991A85D-D2BA-43E3-BE94-9F17FBFBE3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E86BB8F-3166-431D-985E-41DD520C65FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E86BB8F-3166-431D-985E-41DD520C65FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E86BB8F-3166-431D-985E-41DD520C65FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E86BB8F-3166-431D-985E-41DD520C65FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F11F196-F76A-44BA-9F75-F727968F6872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F11F196-F76A-44BA-9F75-F727968F6872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F11F196-F76A-44BA-9F75-F727968F6872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F11F196-F76A-44BA-9F75-F727968F6872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
