@@ -13,7 +13,7 @@ namespace UI.ConsoleApp
             this.logic = logic;
             this.wallet = wallet;
         }
-
+        
         public void StartGame()
         {
             Console.WriteLine("Hi!\nStarting game...");
