@@ -7,7 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyGame", "PropertyGam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.ConsoleApp", "UI.ConsoleApp\UI.ConsoleApp.csproj", "{6782D85D-EC82-4D7E-8ABC-600495830807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.WindowsApp", "UI.WindowsApp\UI.WindowsApp.csproj", "{329DBA38-35DD-4225-8D4B-C8D6A4DED660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI.WindowsApp", "UI.WindowsApp\UI.WindowsApp.csproj", "{329DBA38-35DD-4225-8D4B-C8D6A4DED660}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AC3F3932-803F-4C5C-B070-88065B9055FA} = {AC3F3932-803F-4C5C-B070-88065B9055FA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
