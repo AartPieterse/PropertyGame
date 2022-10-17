@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0">Button 1</Button>
+        <Button Grid.Column="1" Grid.Row="0">Button 2</Button>
+        <Label  Grid.Column="2" Grid.Row="0" Name="ValueLabel" HorizontalAlignment="Center"></Label>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <Button Name="ButtonBuyBox" Click="BuyProperty_Click">Buy Box</Button>
+            <Label Name="LabelBoxCount"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Button Name="ButtonBuyRoom" Click="BuyProperty_Click">Buy Room</Button>
+            <Label Name="LabelRoomCount"></Label>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <Button Name="ButtonBuyLemonadestand" Click="BuyProperty_Click">Buy Lemonadestand</Button>
+            <Label  Name="LabelLemonadestandCount"></Label>
+        </StackPanel>
+        <Button Grid.Column="0" Grid.Row="2">Button 7</Button>
+        <Button Grid.Column="1" Grid.Row="2">Button 8</Button>
+        <Button Grid.Column="2" Grid.Row="2">Button 9</Button>
+        <Button Grid.Column="0" Grid.Row="3">Button 10</Button>
     </Grid>
 </Window>
