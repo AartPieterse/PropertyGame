@@ -31,7 +31,7 @@ namespace PropertyGame
                 "Example: 'buy house' buys a house, and 'sell room' sells a room.";
         }
 
-        public IEnumerable<Property> CalculateRevenue(IEnumerable<Property> properties)
+        public (IEnumerable<Property>, int) CalculateRevenue(IEnumerable<Property> properties)
         {
             int earnings = 0;
 
@@ -41,7 +41,7 @@ namespace PropertyGame
                 earnings += prop.Revenue;
             }
 
-            return properties;
+            return (properties, earnings);
         }
 
         public IEnumerable<Property> GetPropertiesWithPrices()

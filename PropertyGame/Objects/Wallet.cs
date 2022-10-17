@@ -6,7 +6,7 @@
         public int Value { get; set; }
 
 
-        public List<Property> Properties = new();
+        public List<Property> Properties { get; set; }
 
     }
 }
